@@ -23,7 +23,9 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("username", username);
 			response.sendRedirect("manager.jsp");
 		} else {
-			
+			var dispatcher = request.getRequestDispatcher("index.jsp");
+			request.setAttribute("error", true);
+			dispatcher.forward(request, response);
 		}		
 	}
 }
