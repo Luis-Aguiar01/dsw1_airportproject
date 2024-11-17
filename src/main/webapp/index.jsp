@@ -65,7 +65,5 @@
 			<input class="text-lg mt-2 bg-black py-3 self-center w-1/3 rounded-lg text-white hover:bg-gray-900 cursor-pointer font-bold" type="submit" value="Enviar">
 		</form>
 	</div>
-	
-	
 </body>
 </html>
