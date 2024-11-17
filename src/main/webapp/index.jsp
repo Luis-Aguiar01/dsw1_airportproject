@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<% var error = request.getAttribute("error"); %>    
+<% 
+	session.invalidate();
+	var error = request.getAttribute("error"); 
+%>    
     
 <!DOCTYPE html>
 <html>

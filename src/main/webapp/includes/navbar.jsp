@@ -42,5 +42,12 @@
 		    <span >Voos Gerais</span>
 		</a>
 		
+		<% if (isLogged != null) { %>
+		
+		<a href="logout.do" class="bg-red-700 py-2 px-4 text-center rounded-lg hover:bg-red-500 cursor-pointer font-bold">
+			<button>Logout</button>
+		</a>
+		
+		<% } %>
 	</div>
 </header>
