@@ -20,5 +20,14 @@
 	
 	<jsp:include page="includes/navbar.jsp"/>
 	
+	<div>
+		<table>
+			<thead></thead>
+			<tbody></tbody>
+		</table>
+	
+	
+	</div>
+	
 </body>
 </html>
