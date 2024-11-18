@@ -1,7 +1,13 @@
 package br.edu.ifsp.dsw1.controller;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
+import org.apache.catalina.startup.ClassLoaderFactory.Repository;
+
+import br.edu.ifsp.dsw1.model.entity.FlightData;
+import br.edu.ifsp.dsw1.model.entity.FlightDataCollection;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,6 +17,12 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/application.do")
 public class ManagerApplicationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private FlightDataCollection flightRepository;
+	
+	@Override
+	public void init() throws ServletException {
+		flightRepository = new FlightDataCollection();
+	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -24,6 +36,8 @@ public class ManagerApplicationServlet extends HttpServlet {
 			view = handleLogout(request, response);
 		} else if ("login-page".equals(action)) {
 			view = handleLoginPage(request, response);
+		} else if ("flight-register".equals(action)) {
+			view = handleFlightRegister(request, response);
 		}
 		
 		var dispatcher = request.getRequestDispatcher(view);
@@ -46,7 +60,7 @@ public class ManagerApplicationServlet extends HttpServlet {
 		
 		if (validateAdminCredentials(username, password)) {
 			var session = request.getSession();
-			session.setAttribute("logged", true);
+			session.setAttribute("authenticate", true);
 			return "manager.jsp";
 		} else {
 			request.setAttribute("error", true);
@@ -62,5 +76,35 @@ public class ManagerApplicationServlet extends HttpServlet {
 		var session = request.getSession(false);
 		session.invalidate();
 		return "index.jsp";
+	}
+	
+	private String handleFlightRegister(HttpServletRequest request, HttpServletResponse response) {
+		var flightNumber = Long.parseLong(request.getParameter("flight_number"));
+		var companyName = request.getParameter("company_name");
+		var arrivingTime = request.getParameter("arriving_time");
+		var dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		
+		if (!isFlightNumberAvailable(flightNumber)) {
+			request.setAttribute("unavailable-number", true);
+		} else if (!isArrivingTimeValid(arrivingTime)) {
+			request.setAttribute("invalid-date", true);
+		} else {
+			var formatedDate = dateFormat.parse(arrivingTime).toString();
+			var flight = new FlightData(flightNumber, companyName, formatedDate);
+			flightRepository.insertFlight(flight);
+			request.setAttribute("sucessful", true);
+		}
+		
+		return "flight_register.jsp";
+	}
+	
+	private boolean isFlightNumberAvailable(long flightNumber) {
+		return flightRepository.getAllFligthts().stream()
+				.anyMatch(f -> f.getFlightNumber().equals(flightNumber));
+	}
+	
+	private boolean isArrivingTimeValid(String arrivingTime) {
+		var arrivingDateTime = LocalDateTime.parse(arrivingTime);
+		return arrivingDateTime.isAfter(LocalDateTime.now());
 	}
 }

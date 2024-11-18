@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 
 <%  
-	var isLogged = session.getAttribute("isLogged");
+	var isLogged = (Boolean) session.getAttribute("authenticate");
 %>
     
 <header class="flex p-6 items-center">
