@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 
 <%  
-	var isLogged = session.getAttribute("username");
+	var isLogged = session.getAttribute("isLogged");
 %>
     
 <header class="flex p-6 items-center">
@@ -35,8 +35,14 @@
 		
 		<% if (isLogged != null) { %>
 		
-		<a href="logout.do" class="bg-red-700 py-2 px-4 text-center rounded-lg hover:bg-red-500 cursor-pointer font-bold">
+		<a href="application.do?action=logout" class="bg-red-700 py-4 px-4 text-center rounded-lg hover:bg-red-500 cursor-pointer font-bold">
 			<button>Logout</button>
+		</a>
+		
+		<% } else { %>
+		
+		<a href="application.do?action=login-page" class="bg-[#0070FF] py-3 px-5 text-center rounded-lg hover:bg-[#589EFA] cursor-pointer font-bold">
+			<button>Login</button>
 		</a>
 		
 		<% } %>
