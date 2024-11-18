@@ -15,7 +15,7 @@
 	<div class="flex flex-col items-center rounded-lg w-5/6 bg-white self-center p-10 mt-5">
 		<h1 class="font-bold text-4xl text-center mb-5 text-black ">Dados dos Voos</h1>
 		
-		<a href="logout.do" class="flex items-center p-3 bg-[#02111D] self-end rounded-lg p-1 mb-5 text-center hover:bg-[#061F34] cursor-pointer">
+		<a href="application.do?action=flight-register-page" class="flex items-center p-3 bg-[#02111D] self-end rounded-lg p-1 mb-5 text-center hover:bg-[#061F34] cursor-pointer">
 			<span class="material-symbols-outlined text-white font-bold">add</span>
 		</a>
 		

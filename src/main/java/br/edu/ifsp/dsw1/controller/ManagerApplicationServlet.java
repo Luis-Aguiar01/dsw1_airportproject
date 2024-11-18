@@ -8,6 +8,7 @@ import org.apache.catalina.startup.ClassLoaderFactory.Repository;
 
 import br.edu.ifsp.dsw1.model.entity.FlightData;
 import br.edu.ifsp.dsw1.model.entity.FlightDataCollection;
+import br.edu.ifsp.dsw1.model.flightstates.Arriving;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -36,8 +37,10 @@ public class ManagerApplicationServlet extends HttpServlet {
 			view = handleLogout(request, response);
 		} else if ("login-page".equals(action)) {
 			view = handleLoginPage(request, response);
-		} else if ("flight-register".equals(action)) {
-			view = handleFlightRegister(request, response);
+		} else if ("flight-register-page".equals(action)) {
+			view = handleFlightRegisterPage(request, response);
+		} else if ("flight-register-data".equals(action)) {
+			view = handleFlightRegisterData(request, response);
 		}
 		
 		var dispatcher = request.getRequestDispatcher(view);
@@ -78,19 +81,27 @@ public class ManagerApplicationServlet extends HttpServlet {
 		return "index.jsp";
 	}
 	
-	private String handleFlightRegister(HttpServletRequest request, HttpServletResponse response) {
+	private String handleFlightRegisterPage(HttpServletRequest request, HttpServletResponse response) {
+		return "flight_register.jsp";
+	}
+	
+	private String handleFlightRegisterData(HttpServletRequest request, HttpServletResponse response) {
 		var flightNumber = Long.parseLong(request.getParameter("flight_number"));
 		var companyName = request.getParameter("company_name");
 		var arrivingTime = request.getParameter("arriving_time");
-		var dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 		
 		if (!isFlightNumberAvailable(flightNumber)) {
 			request.setAttribute("unavailable-number", true);
-		} else if (!isArrivingTimeValid(arrivingTime)) {
+		} 
+		else if (!isArrivingTimeValid(arrivingTime)) {
 			request.setAttribute("invalid-date", true);
-		} else {
-			var formatedDate = dateFormat.parse(arrivingTime).toString();
+		} 
+		else {
+			var formatedDate = LocalDateTime.parse(arrivingTime)
+					.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
 			var flight = new FlightData(flightNumber, companyName, formatedDate);
+			flight.setState(Arriving.getIntance());
+
 			flightRepository.insertFlight(flight);
 			request.setAttribute("sucessful", true);
 		}
@@ -100,7 +111,7 @@ public class ManagerApplicationServlet extends HttpServlet {
 	
 	private boolean isFlightNumberAvailable(long flightNumber) {
 		return flightRepository.getAllFligthts().stream()
-				.anyMatch(f -> f.getFlightNumber().equals(flightNumber));
+				.noneMatch(f -> f.getFlightNumber().equals(flightNumber));
 	}
 	
 	private boolean isArrivingTimeValid(String arrivingTime) {
