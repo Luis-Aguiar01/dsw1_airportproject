@@ -7,7 +7,7 @@
 <jsp:include page="includes/head_links.html"/>
 <title>Cadastro de Voos</title>
 </head>
-<body class="flex flex-col min-h-screen bg-gray-500 font-mono bg-gradient-to-r from-black to-gray-800">
+<body class="">
 	<jsp:include page="includes/navbar.jsp"/>
 	
 	<div class="flex flex-col px-10 py-8 w-1/2 bg-white self-center mt-5">

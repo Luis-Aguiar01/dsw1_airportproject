@@ -29,12 +29,12 @@
 		<form action="login.do" method="POST" class="flex flex-col">
 			<div class="flex items-center border rounded-lg mb-7 bg-gray-200 px-3">
 				<span class="material-icons text-gray-500">person</span>
-				<input class="px-3 py-4 bg-transparent outline-none w-full" type="text" name="username" placeholder="Username" required/>
+				<input class="px-3 py-5 bg-transparent outline-none w-full" type="text" name="username" placeholder="Username" required/>
 			</div>
 			
 			<div class="flex items-center border rounded-lg mb-7 bg-gray-200 px-3">
 				<span class="material-icons text-gray-500">lock</span>
-				<input class="px-3 py-4 bg-transparent outline-none text-base w-full" type="password" name="password" placeholder="Password" required/>
+				<input class="px-3 py-5 bg-transparent outline-none text-base w-full" type="password" name="password" placeholder="Password" required/>
 			</div>
 			
 			<input class="text-lg mt-2 bg-black py-3 self-center w-1/3 rounded-lg text-white hover:bg-gray-900 cursor-pointer font-bold" type="submit" value="Enviar">

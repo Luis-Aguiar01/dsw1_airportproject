@@ -1,0 +1,20 @@
+@charset "ISO-8859-1";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.table-header {
+    @apply p-5 bg-[#010B13] text-white border-2 border-white text-lg text-center font-bold;
+}
+
+.table-cell {
+    @apply p-5 text-white text-lg bg-[#536878] border-2 border-white text-center;
+}
+
+.button-table {
+    @apply bg-[#3B00DB] py-2 px-2 text-center rounded-lg hover:bg-blue-600 cursor-pointer font-bold;
+}
+
+.page-config {
+	@apply flex flex-col min-h-screen bg-gray-500 font-mono bg-gradient-to-r from-black to-gray-800
+}

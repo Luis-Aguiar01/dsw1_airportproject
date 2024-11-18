@@ -25,3 +25,13 @@ replay_pid*
 
 /build/
 /target/
+
+# Ignorar arquivos e pastas de build
+/node_modules/
+/dist/
+/public/
+/build/
+
+# Ignorar arquivos de configuração do Tailwind
+tailwind.config.js
+postcss.config.js
