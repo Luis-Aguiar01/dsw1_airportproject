@@ -1,10 +1,20 @@
 <%@page import="br.edu.ifsp.dsw1.model.entity.FlightData"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
-<% 
+<% 	
+	var isAuthorized = session.getAttribute("authenticate");
+	
+	if (isAuthorized == null) {
+		response.sendRedirect("application.do?action=login-page");
+	}
+
 	var flights = (List<FlightData>) request.getAttribute("flights");
+	
+	if (flights == null) {
+		response.sendRedirect("application.do?action=admin-page");
+	}
 %>
       
 <!DOCTYPE html>

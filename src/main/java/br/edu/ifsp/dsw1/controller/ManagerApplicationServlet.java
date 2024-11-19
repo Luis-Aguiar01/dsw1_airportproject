@@ -9,6 +9,7 @@ import org.apache.catalina.startup.ClassLoaderFactory.Repository;
 import br.edu.ifsp.dsw1.model.entity.FlightData;
 import br.edu.ifsp.dsw1.model.entity.FlightDataCollection;
 import br.edu.ifsp.dsw1.model.flightstates.Arriving;
+import br.edu.ifsp.dsw1.model.flightstates.TookOff;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -37,10 +38,14 @@ public class ManagerApplicationServlet extends HttpServlet {
 			view = handleLogout(request, response);
 		} else if ("login-page".equals(action)) {
 			view = handleLoginPage(request, response);
+		} else if ("admin-page".equals(action)) {
+			view = handleAdminPage(request, response);
 		} else if ("flight-register-page".equals(action)) {
 			view = handleFlightRegisterPage(request, response);
 		} else if ("flight-register-data".equals(action)) {
 			view = handleFlightRegisterData(request, response);
+		} else if ("update".equals(action)) {
+			view = handleUpdate(request, response);
 		}
 		
 		var dispatcher = request.getRequestDispatcher(view);
@@ -64,7 +69,6 @@ public class ManagerApplicationServlet extends HttpServlet {
 		if (validateAdminCredentials(username, password)) {
 			var session = request.getSession();
 			session.setAttribute("authenticate", true);
-			request.setAttribute("flights", flightRepository.getAllFligthts());
 			return "manager.jsp";
 		} else {
 			request.setAttribute("error", true);
@@ -78,12 +82,30 @@ public class ManagerApplicationServlet extends HttpServlet {
 	
 	private String handleLogout(HttpServletRequest request, HttpServletResponse response) {
 		var session = request.getSession(false);
-		session.invalidate();
+		if (session != null) {
+			session.invalidate();
+		}
 		return "index.jsp";
 	}
 	
 	private String handleFlightRegisterPage(HttpServletRequest request, HttpServletResponse response) {
+		var session = request.getSession(false);
+		if (session != null) {
+			request.setAttribute("isLogged", true);
+		}
 		return "flight_register.jsp";
+	}
+	
+	private String handleAdminPage(HttpServletRequest request, HttpServletResponse response) {
+		request.setAttribute("flights", flightRepository.getAllFligthts());
+		return "manager.jsp";
+	}
+	
+	private String handleUpdate(HttpServletRequest request, HttpServletResponse response) {
+		var flightNumber = Long.parseLong(request.getParameter("flight_number"));
+		flightRepository.updateFlight(flightNumber);
+		request.setAttribute("flights", flightRepository.getAllFligthts());
+		return "manager.jsp";
 	}
 	
 	private String handleFlightRegisterData(HttpServletRequest request, HttpServletResponse response) {

@@ -2,6 +2,12 @@
     pageEncoding="ISO-8859-1"%>
 
 <% 
+	var isAuthorized = session.getAttribute("authenticate");
+
+	if (isAuthorized == null) {
+		response.sendRedirect("application.do?action=login-page");
+	}
+
 	var numberUnavailable = request.getAttribute("unavailable-number");
 	var invalidDate = request.getAttribute("invalid-date");
 	var sucess = request.getAttribute("sucessful");
@@ -31,7 +37,7 @@
 			</div>
 		<% } else if (sucess != null) { %>
 			<div class="self-center justify-self-star mb-3 text-green-500 text-xl">
-				Flight registered Successfully.
+				Flight registered successfully.
 			</div>	
 		<% } %>
 		
