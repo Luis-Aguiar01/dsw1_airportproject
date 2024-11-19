@@ -1,5 +1,11 @@
+<%@page import="br.edu.ifsp.dsw1.model.entity.FlightData"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+<% 
+	var flights = (List<FlightData>) request.getAttribute("flights");
+%>
       
 <!DOCTYPE html>
 <html>
@@ -30,17 +36,21 @@
 	            </tr>
 	        </thead>
 	        <tbody>
+	        	<% if (flights != null && !flights.isEmpty()) {%>
+	        		<% for (var flight : flights) {%>
 	            <tr class="table-row">
-	                <td class="table-cell">LH 191</td>
-	                <td class="table-cell">Lufthansa</td>
-	                <td class="table-cell">17/11/2024 18:00:00</td>
-	                <td class="table-cell table-cell-highlight">Decolando</td>
+	                <td class="table-cell"><%= flight.getFlightNumber() %></td>
+	                <td class="table-cell"><%= flight.getCompany() %></td>
+	                <td class="table-cell"><%= flight.getTime() %></td>
+	                <td class="table-cell table-cell-highlight"><%= flight.getState().getClass().getSimpleName() %></td>
 	                <td class="table-cell">
-		                <a href="#">
+		                <a href="application.do?action=update&flight_number=<%=flight.getFlightNumber()%>">
 		                	<button class="button-primary">Atualizar</button>
 		                </a>  
 	                </td>
 	            </tr>
+	            	<% } %>
+	            <% } %>
 	        </tbody>
 	    </table>
 	</div>

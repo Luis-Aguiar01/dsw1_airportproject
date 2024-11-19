@@ -64,6 +64,7 @@ public class ManagerApplicationServlet extends HttpServlet {
 		if (validateAdminCredentials(username, password)) {
 			var session = request.getSession();
 			session.setAttribute("authenticate", true);
+			request.setAttribute("flights", flightRepository.getAllFligthts());
 			return "manager.jsp";
 		} else {
 			request.setAttribute("error", true);
