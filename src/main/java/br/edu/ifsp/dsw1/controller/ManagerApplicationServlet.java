@@ -66,6 +66,8 @@ public class ManagerApplicationServlet extends HttpServlet {
 			view = handleBoardingPage(request, response);
 		} else if ("taking-off-page".equals(action)) {
 			view = handleTakingOffPage(request, response);
+		} else if ("took-off-page".equals(action)) {
+			view = handleTookOffPage(request, response);
 		}
 		
 		var dispatcher = request.getRequestDispatcher(view);
@@ -98,6 +100,12 @@ public class ManagerApplicationServlet extends HttpServlet {
 			HttpServletRequest request, HttpServletResponse response) {
 		request.setAttribute("taking-off-totens", takingOffRepository.getAllTotens());
 		return "taking-off-page.jsp";
+	}
+	
+	private String handleTookOffPage(
+			HttpServletRequest request, HttpServletResponse response) {
+		request.setAttribute("took-off-totens", tookOffRepository.getAllTotens());
+		return "took-off-page.jsp";
 	}
 	
 	private String handleLogin(HttpServletRequest request, HttpServletResponse response) {

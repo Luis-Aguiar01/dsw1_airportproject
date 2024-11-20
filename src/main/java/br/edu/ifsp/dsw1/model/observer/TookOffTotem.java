@@ -1,7 +1,7 @@
 package br.edu.ifsp.dsw1.model.observer;
 
 import br.edu.ifsp.dsw1.model.entity.FlightData;
-import br.edu.ifsp.dsw1.model.flightstates.TakingOff;
+import br.edu.ifsp.dsw1.model.flightstates.TookOff;
 
 public class TookOffTotem extends Totem {
 	
@@ -13,7 +13,7 @@ public class TookOffTotem extends Totem {
 
 	@Override
 	public void update(FlightData flight) {
-		if (flight.getState() instanceof TakingOff) {
+		if (flight.getState() instanceof TookOff) {
 			var totem = new TotemData(
 					flight.getFlightNumber(), flight.getCompany(), flight.getTime());
 			addTotem(totem);

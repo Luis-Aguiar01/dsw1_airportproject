@@ -37,7 +37,7 @@
 			<span>Hall 1</span>
 		</a>
 		
-		<a href="#" class="flex  items-center gap-2 border-b-2 border-transparent hover:border-white pb-1 text-xl">
+		<a href="took-off-page.jsp" class="flex  items-center gap-2 border-b-2 border-transparent hover:border-white pb-1 text-xl">
 			<span class="material-icons text-2xl">check_circle</span>
 			<span>Hall 2</span>
 		</a>
