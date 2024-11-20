@@ -32,7 +32,7 @@
 			<span>Desembarque</span>
 		</a>
 		
-		<a href="#" class="flex  items-center gap-2 border-b-2 border-transparent hover:border-white pb-1 text-xl">
+		<a href="taking-off-page.jsp" class="flex  items-center gap-2 border-b-2 border-transparent hover:border-white pb-1 text-xl">
 			<span class="material-icons text-2xl">airplanemode_active</span>
 			<span>Hall 1</span>
 		</a>
