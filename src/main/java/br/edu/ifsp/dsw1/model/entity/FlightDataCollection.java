@@ -8,7 +8,7 @@ import br.edu.ifsp.dsw1.model.flightstates.TookOff;
 import br.edu.ifsp.dsw1.model.observer.FlightDataObserver;
 import br.edu.ifsp.dsw1.model.observer.FlightDataSubject;
 
-public class FlightDataCollection implements FlightDataSubject{
+public class FlightDataCollection implements FlightDataSubject {
 
 	private List<FlightData> flights;
 	private List<FlightDataObserver> observers;

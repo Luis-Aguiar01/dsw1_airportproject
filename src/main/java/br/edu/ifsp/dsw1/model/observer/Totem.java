@@ -4,48 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Totem implements FlightDataObserver {
-	private List<Totem> totemList;
-	private final Long flightNumber;
-	private final String company;
-	private final String time;
+	private List<TotemData> totemList;
 	
-	public Totem(Long flightNumber, String company, String time) {
-		this.flightNumber = flightNumber;
-		this.company = company;
-		this.time = time;
+	public Totem() {
 		totemList = new ArrayList<>();
 	}
 	
-	public void addTotem(Totem totem) {
+	public void addTotem(TotemData totem) {
 		if (totem != null) {
 			totemList.add(totem);
 		}
 	}
 	
-	public void removeTotem(Totem totem) {
+	public void removeTotem(TotemData totem) {
 		totemList.remove(totem);
 	}
 	
-	public List<Totem> getAllTotens() {
+	public List<TotemData> getAllTotens() {
 		return new ArrayList<>(totemList);
 	}
 	
-	public Totem findTotemByFlightNumber(Long flightNumber) {
+	public TotemData findTotemByFlightNumber(Long flightNumber) {
 		return getAllTotens().stream()
 				.filter(t -> t.getFlightNumber().equals(flightNumber))
 				.findFirst()
 				.orElse(null);
-	}
-
-	public Long getFlightNumber() {
-		return flightNumber;
-	}
-
-	public String getCompany() {
-		return company;
-	}
-
-	public String getTime() {
-		return time;
 	}
 }

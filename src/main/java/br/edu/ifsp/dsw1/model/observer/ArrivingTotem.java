@@ -5,22 +5,32 @@ import br.edu.ifsp.dsw1.model.flightstates.Arriving;
 
 public class ArrivingTotem extends Totem {
 	
-	public ArrivingTotem(Long flightNumber, String company, String time) {
-		super(flightNumber, company, time);
+	private static Totem instance;
+	
+	private ArrivingTotem() {
+		super();
+		
 	}
 	
 	@Override
 	public void update(FlightData flight) {
 		if (flight.getState() instanceof Arriving) {
-			Totem totem = new ArrivingTotem(
+			var totem = new TotemData(
 					flight.getFlightNumber(), flight.getCompany(), flight.getTime());
 			addTotem(totem);
 		}
 		else {
-			Totem totem = findTotemByFlightNumber(flight.getFlightNumber());
+			var totem = findTotemByFlightNumber(flight.getFlightNumber());
 			if (totem != null) {
-				getAllTotens().remove(totem);
+				removeTotem(totem);;
 			}
 		}
+	}
+	
+	public static Totem getInstance() {
+		if (instance == null) {
+			instance = new ArrivingTotem();
+		}
+		return instance;
 	}
 }

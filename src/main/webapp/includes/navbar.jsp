@@ -27,7 +27,7 @@
 			<span>Embarque</span>
 		</a>
 		
-		<a href="#" class="flex items-center gap-2 border-b-2 border-transparent hover:border-white pb-1 text-xl">
+		<a href="arriving-page.jsp" class="flex items-center gap-2 border-b-2 border-transparent hover:border-white pb-1 text-xl">
 			<span class="material-icons text-2xl">flight_land</span>
 			<span>Desembarque</span>
 		</a>

@@ -12,8 +12,6 @@
 
 	<jsp:include page="includes/navbar.jsp"/>
 	
-	
-	
-	
+
 </body>
 </html>
