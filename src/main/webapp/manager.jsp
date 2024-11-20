@@ -8,12 +8,14 @@
 	
 	if (isAuthorized == null) {
 		response.sendRedirect("application.do?action=login-page");
+		return;
 	}
 
 	var flights = (List<FlightData>) request.getAttribute("flights");
 	
 	if (flights == null) {
 		response.sendRedirect("application.do?action=admin-page");
+		return;
 	}
 %>
       
@@ -28,14 +30,14 @@
 	
 	<jsp:include page="includes/navbar.jsp"/>
 	
-	<div class="flex flex-col items-center rounded-lg w-5/6 bg-white self-center p-10 mt-5 shadow-lg">
-	    <h1 class="font-bold text-4xl text-center mb-10 text-black">Dados dos Voos</h1>
+	<div class="container-table">
+	    <h1 class="titlle-table">Dados dos Voos</h1>
 	
-	    <a href="application.do?action=flight-register-page" class="flex items-center p-3 bg-[#02111D] self-end rounded-lg p-1 mb-5 text-center hover:bg-[#061F34] cursor-pointer">
+	    <a href="application.do?action=flight-register-page" class="add-button">
 	        <span class="material-symbols-outlined text-white font-bold">add</span>
 	    </a>
 	
-	    <table class="w-full text-sm text-left border-collapse">
+	    <table class="table-container">
 	        <thead>
 	            <tr>
 	                <th class="table-header table-header-rounded-left">Número do Voo</th>
@@ -64,5 +66,6 @@
 	        </tbody>
 	    </table>
 	</div>
+	
 </body>
 </html>

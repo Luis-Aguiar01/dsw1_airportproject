@@ -8,7 +8,7 @@
 <jsp:include page="includes/head_links.html"/>
 <title>Login Page</title>
 </head>
-<body class="flex flex-col min-h-screen bg-gray-500 font-mono bg-gradient-to-r from-black to-gray-800">
+<body class="page-config">
 
 	<jsp:include page="includes/navbar.jsp"/>
 	
