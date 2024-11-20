@@ -16,7 +16,7 @@
 	
 	<jsp:include page="includes/navbar.jsp"/>
 	
-	<div class="container-form mt-10">
+	<div class="container-form mt-10 px-10 py-6">
 		<h1 class="form-title">Login</h1>
 		
 		<% if (error != null) { %>
@@ -28,12 +28,12 @@
 		<form action="application.do?action=login" method="POST" class="flex flex-col">
 			<div class="input-container">
 				<span class="material-icons text-gray-500">person</span>
-				<input class="input-style" type="text" name="username" placeholder="Username" required/>
+				<input class="input-style py-5" type="text" name="username" placeholder="Username" required/>
 			</div>
 			
 			<div class="input-container">
 				<span class="material-icons text-gray-500">lock</span>
-				<input class="input-style" type="password" name="password" placeholder="Password" required/>
+				<input class="input-style py-5" type="password" name="password" placeholder="Password" required/>
 			</div>
 			
 			<input class="button-form" type="submit" value="Enviar">

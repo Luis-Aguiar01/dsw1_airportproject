@@ -44,13 +44,13 @@
 		
 		<% if (isLogged != null) { %>
 		
-		<a href="application.do?action=logout" class="bg-red-700 py-4 px-4 hover:bg-red-500">
+		<a href="application.do?action=logout" class="bg-red-700 py-4 px-4 hover:bg-red-500 font-bold rounded-lg">
 			<button>Logout</button>
 		</a>
 		
 		<% } else { %>
 		
-		<a href="application.do?action=login-page" class="bg-[#0070FF] py-3 px-5 hover:bg-[#589EFA]">
+		<a href="application.do?action=login-page" class="bg-[#0070FF] py-3 px-5 hover:bg-[#589EFA] font-bold rounded-lg">
 			<button>Login</button>
 		</a>
 		

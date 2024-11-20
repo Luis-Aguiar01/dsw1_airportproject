@@ -25,7 +25,7 @@
 	
 	<jsp:include page="includes/navbar.jsp"/>
 	
-	<div class="container-form mt-2">
+	<div class="container-form mt-2 px-10 py-4">
 		<h1 class="form-title">Cadastro de Voo</h1>
 		
 		<% if (numberUnavailable != null) { %>
@@ -37,22 +37,22 @@
 				Register failed. Please type a valid date.
 			</div>
 		<% } else if (sucess != null) { %>
-			<div class="error-message-form">
+			<div class="self-center justify-self-start mb-5 text-green-600 text-xl">
 				Flight registered successfully.
 			</div>	
 		<% } %>
 		
 		<form action="application.do?action=flight-register-data" method="POST" class="flex flex-col">
 			<div class="input-container">
-				<input class="input-style" type="number" name="flight_number" placeholder="Número do Voo" required/>
+				<input class="input-style py-4" type="number" name="flight_number" placeholder="Número do Voo" required/>
 			</div>
 			
 			<div class="input-container">
-				<input class="input-style" type="text" name="company_name" placeholder="Nome da Companhia Aérea" required/>
+				<input class="input-style py-4" type="text" name="company_name" placeholder="Nome da Companhia Aérea" required/>
 			</div>
 			
 			<div class="input-container">
-				<input class="input-style" type="datetime-local" name="arriving_time" placeholder="Horário de Chegada" required/>
+				<input class="input-style py-4" type="datetime-local" name="arriving_time" placeholder="Horário de Chegada" required/>
 			</div>
 			
 			<input class="button-form" type="submit" value="Enviar">

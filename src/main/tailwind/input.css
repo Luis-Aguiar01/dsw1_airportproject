@@ -51,7 +51,7 @@
 }
 
 .container-form {
-	@apply flex flex-col px-10 py-6 w-1/2 bg-white self-center;
+	@apply flex flex-col  w-1/2 bg-white self-center;
 }
 
 .form-title {
@@ -71,7 +71,7 @@
 }
 
 .input-style {
-	@apply tracking-widest px-3 py-5 text-black bg-transparent outline-none text-lg w-full;
+	@apply px-4 text-black bg-transparent outline-none w-full;
 }
 
 .button-form {
@@ -87,5 +87,5 @@
 }
 
 .button-navbar {
-	@apply text-center rounded-lg cursor-pointer font-bold;
+	@apply text-center cursor-pointer;
 }
