@@ -27,14 +27,7 @@
 	    <h1 class="titlle-table">Dados dos Voos</h1>
 	
 	    <table class="table-container">
-	        <thead>
-	            <tr>
-	                <th class="table-header table-header-rounded-left">Número do Voo</th>
-	                <th class="table-header">Nome da Companhia</th>
-	                <th class="table-header">Data de Chegada</th>
-	                <th class="table-header table-header-rounded-right">Status</th>
-	            </tr>
-	        </thead>
+	        <jsp:include page="includes/table-header.html"/>
 	        <tbody>
 	        	<% if (totens != null && !totens.isEmpty()) { %>
 	        		<% for (var totem : totens) { %>
