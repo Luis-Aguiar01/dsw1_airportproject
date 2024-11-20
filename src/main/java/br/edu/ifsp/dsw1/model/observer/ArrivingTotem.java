@@ -3,7 +3,7 @@ package br.edu.ifsp.dsw1.model.observer;
 import br.edu.ifsp.dsw1.model.entity.FlightData;
 import br.edu.ifsp.dsw1.model.flightstates.Arriving;
 
-public class ArrivingTotem extends Totem {
+public final class ArrivingTotem extends Totem {
 	
 	private static Totem instance;
 	
