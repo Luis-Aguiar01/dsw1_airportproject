@@ -24,7 +24,7 @@
 	
 	<jsp:include page="includes/navbar.jsp"/>
 	
-	<div class="flex flex-col px-10 py-8 w-1/2 bg-white self-center mt-3">
+	<div class="flex flex-col px-10 py-6 w-1/2 bg-white self-center mt-2">
 		<h1 class="self-center font-bold text-3xl mb-5">Cadastro de Voo</h1>
 		
 		<% if (numberUnavailable != null) { %>

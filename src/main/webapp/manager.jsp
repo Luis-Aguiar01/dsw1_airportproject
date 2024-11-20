@@ -40,7 +40,7 @@
 	            <tr>
 	                <th class="table-header table-header-rounded-left">Número do Voo</th>
 	                <th class="table-header">Nome da Companhia</th>
-	                <th class="table-header">Data de Saída</th>
+	                <th class="table-header">Data de Chegada</th>
 	                <th class="table-header">Status</th>
 	                <th class="table-header table-header-rounded-right">Atualização</th>
 	            </tr>
