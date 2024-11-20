@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* classes para o <thead> */
 .table-header {
   	@apply bg-[#02111D] text-white border-b border-[#061F34] text-center font-bold py-4;
 }
@@ -16,7 +15,6 @@
   	@apply rounded-tr-lg;
 }
 
-/* classes para as linhas do <tbody> */
 .table-row {
   	@apply bg-gray-100 hover:bg-gray-200 transition-all;
 }
@@ -29,7 +27,6 @@
   	@apply text-green-600;
 }
 
-/* classes para os botões */
 .button-primary {
   	@apply bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all;
 }
@@ -88,4 +85,12 @@
 
 .button-navbar {
 	@apply text-center cursor-pointer;
+}
+
+.p-text-index {
+	@apply leading-relaxed my-2 text-lg;
+}
+
+.container-index {
+	@apply flex flex-col items-center rounded-lg self-center p-10 mt-5 shadow-lg w-2/3 text-white bg-[#2A3439];
 }
