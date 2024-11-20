@@ -9,7 +9,6 @@ public class ArrivingTotem extends Totem {
 	
 	private ArrivingTotem() {
 		super();
-		
 	}
 	
 	@Override

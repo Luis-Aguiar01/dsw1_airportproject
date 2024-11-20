@@ -2,24 +2,24 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+    
 <%
-	var totens = (List<TotemData>) request.getAttribute("arriving-totens");
+	var totens = (List<TotemData>) request.getAttribute("boarding-totens");
 
 	if (totens == null) {
-		response.sendRedirect("application.do?action=arriving-page");	
+		response.sendRedirect("application.do?action=boarding-page");	
 	}
-%>    
+%>     
     
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Arriving Page</title>
+<title>Insert title here</title>
 <jsp:include page="includes/head_links.html" />
 </head>
 <body class="flex flex-col min-h-screen bg-gray-500 font-mono bg-gradient-to-r from-black to-gray-800">
-	
+
 	<jsp:include page="includes/navbar.jsp" />
 	
 	<div class="flex flex-col items-center rounded-lg w-5/6 bg-white self-center p-10 mt-5 shadow-lg">
@@ -41,7 +41,7 @@
 	                <td class="table-cell"><%= totem.getFlightNumber() %></td>
 	                <td class="table-cell"><%= totem.getCompany() %></td>
 	                <td class="table-cell"><%= totem.getTime() %></td>
-	                <td class="table-cell table-cell-highlight">Arriving</td>
+	                <td class="table-cell table-cell-highlight">Boarding</td>
 	            </tr>
 	            	<% } %>
 	            <% } %>

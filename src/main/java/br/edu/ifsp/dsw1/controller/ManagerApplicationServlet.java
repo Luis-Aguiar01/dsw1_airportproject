@@ -8,6 +8,9 @@ import br.edu.ifsp.dsw1.model.entity.FlightData;
 import br.edu.ifsp.dsw1.model.entity.FlightDataCollection;
 import br.edu.ifsp.dsw1.model.flightstates.Arriving;
 import br.edu.ifsp.dsw1.model.observer.ArrivingTotem;
+import br.edu.ifsp.dsw1.model.observer.BoardingTotem;
+import br.edu.ifsp.dsw1.model.observer.TakingOffTotem;
+import br.edu.ifsp.dsw1.model.observer.TookOffTotem;
 import br.edu.ifsp.dsw1.model.observer.Totem;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -20,12 +23,21 @@ public class ManagerApplicationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private FlightDataCollection flightRepository;
 	private Totem arrivingRepository;
+	private Totem boardingRepository;
+	private Totem takingOffRepository;
+	private Totem tookOffRepository;
 	
 	@Override
 	public void init() throws ServletException {
 		flightRepository = new FlightDataCollection();
 		arrivingRepository = ArrivingTotem.getInstance();
+		boardingRepository = BoardingTotem.getInstance();
+		takingOffRepository = TakingOffTotem.getInstance();
+		tookOffRepository = TookOffTotem.getInstance();
 		flightRepository.register(arrivingRepository);
+		flightRepository.register(boardingRepository);
+		flightRepository.register(takingOffRepository);
+		flightRepository.register(tookOffRepository);
 	}
 
 	@Override
@@ -50,6 +62,8 @@ public class ManagerApplicationServlet extends HttpServlet {
 			view = handleUpdate(request, response);
 		} else if ("arriving-page".equals(action)) {
 			view = handleArrivingPage(request, response);
+		} else if ("boarding-page".equals(action)) {
+			view = handleBoardingPage(request, response);
 		}
 		
 		var dispatcher = request.getRequestDispatcher(view);
@@ -70,6 +84,12 @@ public class ManagerApplicationServlet extends HttpServlet {
 			HttpServletRequest request, HttpServletResponse response) {
 		request.setAttribute("arriving-totens", arrivingRepository.getAllTotens());
 		return "arriving-page.jsp";
+	}
+	
+	private String handleBoardingPage(
+			HttpServletRequest request, HttpServletResponse response) {
+		request.setAttribute("boarding-totens", boardingRepository.getAllTotens());
+		return "boarding-page.jsp";
 	}
 	
 	private String handleLogin(HttpServletRequest request, HttpServletResponse response) {
