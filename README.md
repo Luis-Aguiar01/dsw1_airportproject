@@ -1,44 +1,56 @@
 # Airport System
 
-> Breve descrição do projeto. Exemplo: *"Esse é um sistem web desenvolvido para o gerenciamento de voos."*
+> Sistema web desenvolvido para o gerenciamento de voos.
 
 ---
 
 ## 📜 Sobre o Projeto
-  
-*"O projeto se trata de um sistema de gerenciamento de voos, no quall um admim pode acessar as funcionalidades de cadastro e atuallização de estado dos voos. Os clientes, apenas
-podem ver os totens para cada um dos voos do sistema, que apresentam as informações relevantes de cada voo cadastrado."*
+
+O **Airport System** é um sistema de gerenciamento de voos que oferece funcionalidades específicas para dois tipos de usuários:  
+- **Administradores:** Podem cadastrar, atualizar e visualizar os estados dos voos.  
+- **Clientes:** Têm acesso aos totens de informações de voos, onde podem visualizar detalhes importantes dos voos disponíveis no sistema.  
+
+O objetivo é simplificar a administração e a consulta de voos, garantindo uma interface intuitiva e funcional.
 
 ---
 
 ## 🚀 Tecnologias Utilizadas
-  
-- **Back-end:** Java, JSP & Servlet  
-- **Front-end:** HTML, CSS, Tailwind  
+
+- **Back-end:** Java, JSP, Servlet  
+- **Front-end:** HTML, CSS, TailwindCSS  
 
 ---
 
 ## 📸 Screenshots
 
 ### Página Inicial  
+Apresenta as principais funcionalidades e acesso ao sistema.  
 ![Página Inicial](screenshots/index.png)
 
-### Login do administrador  
-![Funcionalidade X](screenshots/login.png)
+### Login do Administrador  
+Interface de autenticação para administradores.  
+![Login do Administrador](screenshots/login.png)
 
-### Tabela de voos gerais e cadastro (disponivel apenas para o admin) 
-![Funcionalidade Y](screenshots/general-flights.png)
+### Tabela de Voos e Cadastro (Administrador)  
+Visão geral dos voos cadastrados e formulário para incluir novos voos.  
+![Tabela de Voos](screenshots/general-flights.png)
 
-### Cadastro de Voo (apenas o admin)
-![Funcionalidade Y](screenshots/flight-register.png)
+### Cadastro de Voo (Administrador)  
+Formulário utilizado para registrar novos voos.  
+![Cadastro de Voo](screenshots/flight-register.png)
 
-### Voo cadastrado
-![Funcionalidade Y](screenshots/general-flight2.png)
+### Voo Cadastrado  
+Visualização de um voo registrado no sistema.  
+![Voo Cadastrado](screenshots/general-flight2.png)
+
+### Totem do voo em estado chegando  
+Visualização de um voo registrado no sistema.  
+![Totem Chegando](screenshots/totem-arriving.png)
 
 ---
 
 ## 👤 Autor
- 
+
 **Nome:** Luis Henrique Aguiar  
 **E-mail:** luis.aguiar@aluno.ifsp.edu.br  
 
