@@ -7,6 +7,10 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+/*
+	Atualiza o status de um voo e envia a lista de voos para a página do admin.
+*/
+
 public class UpdateFlightCommand implements Command {
 	
 	private FlightDataCollection repository;
@@ -18,9 +22,14 @@ public class UpdateFlightCommand implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		var flightNumber = Long.parseLong(request.getParameter("flight_number"));
-		repository.updateFlight(flightNumber);
-		request.setAttribute("flights", repository.getAllFligthts());
+		try {
+			var flightNumber = Long.parseLong(request.getParameter("flight_number"));
+			repository.updateFlight(flightNumber);
+			request.setAttribute("flights", repository.getAllFligthts());
+		} catch (NumberFormatException e) {
+			return "manager.jsp";
+		}
+		
 		return "manager.jsp";
 	}
 }

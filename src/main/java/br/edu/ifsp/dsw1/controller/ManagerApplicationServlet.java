@@ -47,6 +47,8 @@ public class ManagerApplicationServlet extends HttpServlet {
 			command = totemCommands.getCommands().get(2);
 		} else if ("took-off-page".equals(action)) {
 			command = totemCommands.getCommands().get(3);
+		} else if ("index".equals(action)) {
+			command = new IndexCommand();
 		} else {
 			command = new ErrorCommand();
 		}

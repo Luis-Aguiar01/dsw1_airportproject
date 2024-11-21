@@ -1,6 +1,5 @@
-package br.edu.ifsp.dsw1.model.observer;
+package br.edu.ifsp.dsw1.model.entity;
 
-import br.edu.ifsp.dsw1.model.entity.FlightData;
 import br.edu.ifsp.dsw1.model.flightstates.TookOff;
 
 public final class TookOffTotem extends Totem {

@@ -1,6 +1,10 @@
-package br.edu.ifsp.dsw1.model.observer;
+package br.edu.ifsp.dsw1.model.entity;
 
 import java.util.Objects;
+
+/*
+	Essa classe serve para guardar as informações relevantes de um totem.
+*/
 
 public class TotemData {
 	private final Long flightNumber;

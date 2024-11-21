@@ -11,6 +11,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+/*
+	Essa classe lida com os dados enviados do formulário para o cadastro de um novo
+	voo. É validado se o voo possui um id de um voo cadastrado atualmente no banco,
+	e se a data é inválida, ou seja, antes do dia atual.
+*/
+
 public class FlightRegisterDataCommand implements Command {
 	
 	private FlightDataCollection repository;
@@ -22,24 +28,29 @@ public class FlightRegisterDataCommand implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		var flightNumber = Long.parseLong(request.getParameter("flight_number"));
-		var companyName = request.getParameter("company_name");
-		var arrivingTime = request.getParameter("arriving_time");
-		
-		if (!isFlightNumberAvailable(flightNumber)) {
-			request.setAttribute("unavailable-number", true);
-		} 
-		else if (!isArrivingTimeValid(arrivingTime)) {
-			request.setAttribute("invalid-date", true);
-		} 
-		else {
-			var formatedDate = LocalDateTime.parse(arrivingTime)
-					.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
-			var flight = new FlightData(flightNumber, companyName, formatedDate);
-			flight.setState(Arriving.getIntance());
+		try {
+			var flightNumber = Long.parseLong(request.getParameter("flight_number"));
+			var companyName = request.getParameter("company_name");
+			var arrivingTime = request.getParameter("arriving_time");
+			
+			if (!isFlightNumberAvailable(flightNumber)) {
+				request.setAttribute("unavailable-number", true);
+			} 
+			else if (!isArrivingTimeValid(arrivingTime)) {
+				request.setAttribute("invalid-date", true);
+			} 
+			else {
+				var formatedDate = LocalDateTime.parse(arrivingTime)
+						.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
+				
+				var flight = new FlightData(flightNumber, companyName, formatedDate);
+				flight.setState(Arriving.getIntance());
 
-			repository.insertFlight(flight);
-			request.setAttribute("sucessful", true);
+				repository.insertFlight(flight);
+				request.setAttribute("sucessful", true);
+			}
+		} catch (Exception exception) {
+			return "flight_register.jsp";
 		}
 		
 		return "flight_register.jsp";

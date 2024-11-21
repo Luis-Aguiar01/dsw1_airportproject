@@ -2,12 +2,14 @@ package br.edu.ifsp.dsw1.controller.command;
 
 import java.io.IOException;
 
+import br.edu.ifsp.dsw1.model.entity.BoardingTotem;
 import br.edu.ifsp.dsw1.model.entity.FlightDataCollection;
-import br.edu.ifsp.dsw1.model.observer.BoardingTotem;
-import br.edu.ifsp.dsw1.model.observer.Totem;
+import br.edu.ifsp.dsw1.model.entity.Totem;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
+// Comentário feito na classe ArrivingPageCommand.
 
 public final class BoardingPageCommand implements Command {
 

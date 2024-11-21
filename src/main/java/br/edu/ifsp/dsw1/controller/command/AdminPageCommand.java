@@ -7,6 +7,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+// Retorna a página do admin, caso uma requisição seja feita a ela.
+
 public class AdminPageCommand implements Command {
 	
 	private FlightDataCollection repository;

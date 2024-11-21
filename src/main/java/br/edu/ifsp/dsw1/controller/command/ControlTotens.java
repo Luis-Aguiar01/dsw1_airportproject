@@ -5,6 +5,12 @@ import java.util.List;
 
 import br.edu.ifsp.dsw1.model.entity.FlightDataCollection;
 
+/*
+	Criei essa classe para inicializar e armazenar os meus Commands relacionados
+	aos totens. Como achei que ficaria muito poluído criar todas essas classes
+	diretamente no Servlet, preferi criá-los dentro de uma classe separada.
+*/
+
 public final class ControlTotens {
 	private final List<Command> commands;
 	private final FlightDataCollection flightRepository;
@@ -22,7 +28,6 @@ public final class ControlTotens {
 		commands.add(new TakingOffPageCommand(flightRepository));
 		commands.add(new TookOffPageCommand(flightRepository));
 	}
-	
 	
 	public List<Command> getCommands() {
 		return commands;
