@@ -31,7 +31,7 @@
 	<jsp:include page="includes/navbar.jsp"/>
 	
 	<div class="container-table">
-	    <h1 class="titlle-table">Dados dos Voos</h1>
+	    <h1 class="titlle-table">General Flights</h1>
 	
 	    <a href="application.do?action=flight-register-page" class="add-button">
 	        <span class="material-symbols-outlined text-white font-bold">add</span>

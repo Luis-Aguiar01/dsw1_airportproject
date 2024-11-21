@@ -3,6 +3,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
+<!-- O return abaixo serve para que o Servlet não tente executar nada abaixo do
+	sendRedirect. Em algumas situações, uma exeção era lançada, pois o servet tentava
+	executar o código abaixo do sendRedirect. -->
+
 <%
 	var totens = (List<TotemData>) request.getAttribute("arriving-totens");
 
