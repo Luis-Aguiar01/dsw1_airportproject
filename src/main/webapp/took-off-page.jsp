@@ -1,4 +1,4 @@
-<%@page import="br.edu.ifsp.dsw1.model.observer.TotemData"%>
+<%@page import="br.edu.ifsp.dsw1.model.entity.TotemData"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -16,7 +16,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Took Off Page</title>
 <jsp:include page="includes/head_links.html" />
 </head>
 <body class="page-config">
@@ -24,7 +24,7 @@
 	<jsp:include page="includes/navbar.jsp" />
 	
 	<div class="container-table">
-	    <h1 class="titlle-table">Dados dos Voos</h1>
+	    <h1 class="titlle-table">Took Off Flights</h1>
 	
 	    <table class="table-container">
 	        <jsp:include page="includes/table-header.html"/>

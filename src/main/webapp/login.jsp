@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Login</title>
 <jsp:include page="includes/head_links.html"/>
 </head>
 <body class="page-config">
