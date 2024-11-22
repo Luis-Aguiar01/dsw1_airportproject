@@ -35,7 +35,7 @@
 	                <td class="table-cell"><%= totem.getFlightNumber() %></td>
 	                <td class="table-cell"><%= totem.getCompany() %></td>
 	                <td class="table-cell"><%= totem.getTime() %></td>
-	                <td class="table-cell table-cell-highlight">Boarding</td>
+	                <td class="table-cell table-cell-highlight"><%= totem.getState() %></td>
 	            </tr>
 	            	<% } %>
 	            <% } %>

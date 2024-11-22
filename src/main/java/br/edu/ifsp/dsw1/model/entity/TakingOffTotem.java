@@ -14,7 +14,11 @@ public final class TakingOffTotem extends Totem {
 	public void update(FlightData flight) {
 		if (flight.getState() instanceof TakingOff) {
 			var totem = new TotemData(
-					flight.getFlightNumber(), flight.getCompany(), flight.getTime());
+					flight.getFlightNumber(), 
+					flight.getCompany(), 
+					flight.getTime(),
+					flight.getState().getClass().getSimpleName());
+			
 			addTotem(totem);
 		}
 		else {

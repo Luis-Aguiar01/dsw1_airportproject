@@ -10,12 +10,14 @@ public class TotemData {
 	private final Long flightNumber;
 	private final String company;
 	private final String time;
+	private final String state;
 	
-	public TotemData(Long flightNumber, String company, String time) {
+	public TotemData(Long flightNumber, String company, String time, String state) {
 		super();
 		this.flightNumber = flightNumber;
 		this.company = company;
 		this.time = time;
+		this.state = state;
 	}
 
 	public Long getFlightNumber() {
@@ -28,6 +30,10 @@ public class TotemData {
 
 	public String getTime() {
 		return time;
+	}
+	
+	public String getState() {
+		return state;
 	}
 	
 	@Override
@@ -49,6 +55,9 @@ public class TotemData {
 
 	@Override
 	public String toString() {
-		return "TotemData [flightNumber=" + flightNumber + ", company=" + company + ", time=" + time + "]";
+		return "TotemData [flightNumber=" + flightNumber + 
+				", company=" + company + 
+				", time=" + time + 
+				", state=" + state + "]";
 	}
 }
