@@ -1,24 +1,34 @@
-# Airport System
+# ✈ Airport System
 
 > Sistema web desenvolvido para o gerenciamento de voos.
 
 ---
 
 ## 📜 Sobre o Projeto
+O **Airport System** é um sistema de gerenciamento de voos desenvolvido com foco em organização e boas práticas de design de software. 
+Ele oferece funcionalidades específicas para dois tipos de usuários:
 
-O **Airport System** é um sistema de gerenciamento de voos que oferece funcionalidades específicas para dois tipos de usuários:  
 - **Administradores:** Podem cadastrar, atualizar e visualizar os estados dos voos.  
 - **Clientes:** Têm acesso aos totens de informações de voos, onde podem visualizar detalhes importantes dos voos disponíveis no sistema.  
 
-O objetivo é simplificar a administração e a consulta de voos, garantindo uma interface intuitiva e funcional.
+## Arquitetura e Design de Software
+- **Padrão State**: Utilizado para gerenciar os estados dos voos, que podem ser: Arriving, Boarding, TakingOff e TookOff.
+- **Padrão Front Controller**: Todas as requisições são centralizadas em um único Servlet, simplificando o fluxo de controle.
+- **Padrão Command**: Implementado para separar a lógica de processamento de cada requisição no Servlet principal, promovendo modularidade.
+- **Padrão MVC**: Adotado para garantir a separação clara entre as camadas de Model, View e Controller.
+
+## Objetivo
+Este sistema tem como propósito simplificar a administração e consulta de voos, proporcionando uma interface intuitiva e eficiente. Além disso, o projeto foi desenvolvido como parte da disciplina Desenvolvimento de Software para Web I do IFSP Araraquara.
 
 ---
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Back-end:** Java, JSP, Servlet  
+- **Back-end:** Java 17, JSP, Servlet  
 - **Front-end:** HTML, CSS, TailwindCSS  
-
+- **Servidor** Apache Tomcat 10.1
+- **IDE** Eclipse EE 2023-09
+  
 ---
 
 ## 📸 Screenshots
